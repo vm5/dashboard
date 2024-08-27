@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { sessionDataStudent, sessionDataTeacher, testAssignmentsData } from './data'; // Import test/assignment data
 import { userCodes } from './usercodes'; // Import user codes from the new file
 
-// Styled components
+// Define all styled components here
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,11 +12,9 @@ const Container = styled.div`
   background-image: url('https://img.freepik.com/free-photo/old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall_1258-28313.jpg');
   background-size: cover;
   background-position: center;
-  padding: 20px;
 
   @media (min-width: 768px) {
-    flex-direction: row;
-    padding: 0;
+    flex-direction: row; /* Switch to row layout on wider screens */
   }
 `;
 
@@ -31,8 +29,8 @@ const Sidebar = styled.div`
   margin-bottom: 20px;
 
   @media (min-width: 768px) {
-    width: 250px;
-    margin-bottom: 0;
+    width: 250px; /* Fixed width for larger screens */
+    margin-bottom: 0; /* Remove margin when sidebar is not stacked */
   }
 `;
 
@@ -49,10 +47,6 @@ const SidebarItem = styled.div`
     background-color: #007bff;
     color: #fff;
   }
-
-  @media (max-width: 480px) {
-    font-size: 0.9em;
-  }
 `;
 
 const MainContent = styled.div`
@@ -62,9 +56,9 @@ const MainContent = styled.div`
   border-radius: 10px;
   margin: 20px;
 
-  @media (max-width: 480px) {
-    padding: 10px;
-    margin: 10px;
+  @media (min-width: 768px) {
+    margin: 20px;
+    padding: 40px; /* Increased padding for larger screens */
   }
 `;
 
@@ -73,10 +67,10 @@ const Header = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 
   @media (min-width: 768px) {
-    flex-direction: row;
+    flex-direction: row; /* Horizontal layout for larger screens */
     align-items: center;
   }
 `;
@@ -84,10 +78,10 @@ const Header = styled.div`
 const WelcomeMessage = styled.div`
   font-size: 1.5em;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   @media (min-width: 768px) {
-    margin-bottom: 0;
+    margin-bottom: 0; /* Align text with the calendar on larger screens */
   }
 `;
 
@@ -119,7 +113,7 @@ const Table = styled.table`
   font-size: 0.9em;
 
   @media (min-width: 768px) {
-    font-size: 1em;
+    font-size: 1em; /* Normal font size for larger screens */
   }
 `;
 
@@ -196,26 +190,17 @@ const LoginContainer = styled.div`
   background-position: center;
   color: white;
   padding: 20px;
-
-  @media (max-width: 480px) {
-    padding: 10px;
-  }
+  text-align: center;
 `;
 
 const LoginForm = styled.div`
   background: rgba(0, 0, 0, 0.7);
   padding: 20px;
   border-radius: 10px;
-  text-align: center;
-  width: 90%;
-  max-width: 400px;
-
-  @media (max-width: 480px) {
-    padding: 15px;
-  }
+  width: 100%;
+  max-width: 400px; /* Maximum width for login form */
 `;
 
-// Main Dashboard Component
 const Dashboard = () => {
   const [selectedDate, setSelectedDate] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -311,7 +296,6 @@ const Dashboard = () => {
                     <TableHeader>Test Number</TableHeader>
                     <TableHeader>Test/Assignment</TableHeader>
                     <TableHeader>Date</TableHeader>
-                    <TableHeader>Topics</TableHeader>
                     <TableHeader>Actions</TableHeader>
                   </TableRow>
                 </TableHead>
@@ -319,9 +303,8 @@ const Dashboard = () => {
                   {testsAndAssignments.map((test, index) => (
                     <TableRow key={test.id}>
                       <TableCell>{index + 1}</TableCell>
-                      <TableCell>{test.testType}</TableCell>
+                      <TableCell>{test.name}</TableCell>
                       <TableCell>{test.date}</TableCell>
-                      <TableCell>{test.topics}</TableCell>
                       <TableCell>...</TableCell>
                     </TableRow>
                   ))}
@@ -336,40 +319,21 @@ const Dashboard = () => {
 
   return (
     <>
-      {!isAuthenticated ? (
+      {isAuthenticated ? (
+        renderDashboard()
+      ) : (
         <LoginContainer>
-          <h2>Login</h2>
           <LoginForm>
+            <h2>Login</h2>
             <input
               type="text"
+              placeholder="Enter your code"
               value={inputCode}
               onChange={(e) => setInputCode(e.target.value)}
-              placeholder="Enter Code"
-              style={{
-                marginBottom: '20px',
-                padding: '10px',
-                width: '100%',
-                borderRadius: '5px',
-                border: 'none'
-              }}
             />
-            <button
-              onClick={handleLogin}
-              style={{
-                padding: '10px 20px',
-                border: 'none',
-                backgroundColor: '#007bff',
-                color: 'white',
-                borderRadius: '5px',
-                cursor: 'pointer'
-              }}
-            >
-              Login
-            </button>
+            <button onClick={handleLogin}>Login</button>
           </LoginForm>
         </LoginContainer>
-      ) : (
-        renderDashboard()
       )}
     </>
   );
