@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { sessionDataStudent, sessionDataTeacher, testAssignmentsData } from './data'; // Import test/assignment data
 import { userCodes } from './usercodes'; // Import user codes from the new file
 
-// Define all styled components here
+// Styled components
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -214,6 +214,8 @@ const LoginForm = styled.div`
     padding: 15px;
   }
 `;
+
+// Main Dashboard Component
 const Dashboard = () => {
   const [selectedDate, setSelectedDate] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -309,16 +311,18 @@ const Dashboard = () => {
                     <TableHeader>Test Number</TableHeader>
                     <TableHeader>Test/Assignment</TableHeader>
                     <TableHeader>Date</TableHeader>
-                    <TableHeader>Details</TableHeader>
+                    <TableHeader>Topics</TableHeader>
+                    <TableHeader>Actions</TableHeader>
                   </TableRow>
                 </TableHead>
                 <tbody>
-                  {testsAndAssignments.map((item, index) => (
-                    <TableRow key={item.id}>
+                  {testsAndAssignments.map((test, index) => (
+                    <TableRow key={test.id}>
                       <TableCell>{index + 1}</TableCell>
-                      <TableCell>{item.title}</TableCell>
-                      <TableCell>{item.date}</TableCell>
-                      <TableCell>{item.details}</TableCell>
+                      <TableCell>{test.testType}</TableCell>
+                      <TableCell>{test.date}</TableCell>
+                      <TableCell>{test.topics}</TableCell>
+                      <TableCell>...</TableCell>
                     </TableRow>
                   ))}
                 </tbody>
@@ -330,30 +334,45 @@ const Dashboard = () => {
     );
   };
 
-  if (!isAuthenticated) {
-    // Render Login screen
-    return (
-      <LoginContainer>
-        <LoginForm>
-          <h1>Welcome to ProdigyPeak's Dashboard for both teachers and students. Within this dashboard, it'd be easier for you to access links to classes or tests. </h1>
-          <p>Please enter the code assigned to you!:</p>
-          <input
-            type="text"
-            value={inputCode}
-            onChange={(e) => setInputCode(e.target.value)}
-            placeholder="Enter code"
-            style={{ padding: '10px', fontSize: '1em', borderRadius: '5px' }}
-          />
-          <br />
-          <button onClick={handleLogin} style={{ padding: '10px 20px', marginTop: '10px', backgroundColor: '#007bff', color: '#fff', borderRadius: '5px', cursor: 'pointer' }}>
-            Access
-          </button>
-        </LoginForm>
-      </LoginContainer>
-    );
-  }
-
-  return renderDashboard();
+  return (
+    <>
+      {!isAuthenticated ? (
+        <LoginContainer>
+          <h2>Login</h2>
+          <LoginForm>
+            <input
+              type="text"
+              value={inputCode}
+              onChange={(e) => setInputCode(e.target.value)}
+              placeholder="Enter Code"
+              style={{
+                marginBottom: '20px',
+                padding: '10px',
+                width: '100%',
+                borderRadius: '5px',
+                border: 'none'
+              }}
+            />
+            <button
+              onClick={handleLogin}
+              style={{
+                padding: '10px 20px',
+                border: 'none',
+                backgroundColor: '#007bff',
+                color: 'white',
+                borderRadius: '5px',
+                cursor: 'pointer'
+              }}
+            >
+              Login
+            </button>
+          </LoginForm>
+        </LoginContainer>
+      ) : (
+        renderDashboard()
+      )}
+    </>
+  );
 };
 
 export default Dashboard;
