@@ -6,21 +6,34 @@ import { userCodes } from './usercodes'; // Import user codes from the new file
 // Define all styled components here
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
   background-color: #f8f9fa;
-  background-image: url('https://img.freepik.com/free-photo/old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall_1258-28313.jpg'); /* Replace with your background image path */
+  background-image: url('https://img.freepik.com/free-photo/old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall_1258-28313.jpg');
   background-size: cover;
   background-position: center;
+  padding: 20px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    padding: 0;
+  }
 `;
 
 const Sidebar = styled.div`
-  width: 250px;
+  width: 100%;
   background-color: rgba(28, 37, 54, 0.8);
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   color: white;
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    width: 250px;
+    margin-bottom: 0;
+  }
 `;
 
 const SidebarItem = styled.div`
@@ -36,26 +49,46 @@ const SidebarItem = styled.div`
     background-color: #007bff;
     color: #fff;
   }
+
+  @media (max-width: 480px) {
+    font-size: 0.9em;
+  }
 `;
 
 const MainContent = styled.div`
   flex: 1;
-  padding: 40px;
+  padding: 20px;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
   margin: 20px;
+
+  @media (max-width: 480px) {
+    padding: 10px;
+    margin: 10px;
+  }
 `;
 
 const Header = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 30px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 
 const WelcomeMessage = styled.div`
   font-size: 1.5em;
   color: #333;
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
 `;
 
 const DateSelector = styled.div`
@@ -83,6 +116,11 @@ const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  font-size: 0.9em;
+
+  @media (min-width: 768px) {
+    font-size: 1em;
+  }
 `;
 
 const TableHead = styled.thead`
@@ -153,10 +191,15 @@ const LoginContainer = styled.div`
   align-items: center;
   height: 100vh;
   flex-direction: column;
-  background-image: url('https://img.freepik.com/free-photo/old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall_1258-28313.jpg'); /* Background image for login */
+  background-image: url('https://img.freepik.com/free-photo/old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall_1258-28313.jpg');
   background-size: cover;
   background-position: center;
   color: white;
+  padding: 20px;
+
+  @media (max-width: 480px) {
+    padding: 10px;
+  }
 `;
 
 const LoginForm = styled.div`
@@ -164,8 +207,13 @@ const LoginForm = styled.div`
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-`;
+  width: 90%;
+  max-width: 400px;
 
+  @media (max-width: 480px) {
+    padding: 15px;
+  }
+`;
 const Dashboard = () => {
   const [selectedDate, setSelectedDate] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
