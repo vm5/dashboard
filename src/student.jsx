@@ -21,27 +21,27 @@ const Container = styled.div`
 const Sidebar = styled.div`
   width: 100%;
   background-color: rgba(28, 37, 54, 0.8);
-  padding: 20px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 
   @media (min-width: 768px) {
-    width: 250px; /* Fixed width for larger screens */
+    width: 300px; /* Increased width for larger screens */
     margin-bottom: 0; /* Remove margin when sidebar is not stacked */
   }
 `;
 
 const SidebarItem = styled.div`
-  padding: 15px;
+  padding: 20px;
   color: ${(props) => (props.active ? '#fff' : '#adb5bd')};
-  font-size: 1em;
+  font-size: 1.2em; /* Increased font size */
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-bottom: 5px;
-  border-radius: 5px;
+  margin-bottom: 10px;
+  border-radius: 8px;
 
   &:hover {
     background-color: #007bff;
@@ -51,14 +51,14 @@ const SidebarItem = styled.div`
 
 const MainContent = styled.div`
   flex: 1;
-  padding: 20px;
+  padding: 30px;
   background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  margin: 20px;
+  border-radius: 12px;
+  margin: 30px;
 
   @media (min-width: 768px) {
-    margin: 20px;
-    padding: 40px; /* Increased padding for larger screens */
+    margin: 30px;
+    padding: 50px; /* Increased padding for larger screens */
   }
 `;
 
@@ -67,7 +67,7 @@ const Header = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 
   @media (min-width: 768px) {
     flex-direction: row; /* Horizontal layout for larger screens */
@@ -76,9 +76,9 @@ const Header = styled.div`
 `;
 
 const WelcomeMessage = styled.div`
-  font-size: 1.5em;
+  font-size: 2em; /* Increased font size */
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 
   @media (min-width: 768px) {
     margin-bottom: 0; /* Align text with the calendar on larger screens */
@@ -88,18 +88,19 @@ const WelcomeMessage = styled.div`
 const DateSelector = styled.div`
   display: flex;
   align-items: center;
-  font-size: 1em;
+  font-size: 1.2em; /* Increased font size */
 `;
 
 const CalendarButton = styled.a`
-  margin-left: 10px;
-  padding: 5px 10px;
+  margin-left: 15px;
+  padding: 10px 15px;
   border: none;
   background-color: #007bff;
   color: white;
-  border-radius: 5px;
+  border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
+  font-size: 1.1em; /* Increased font size */
 
   &:hover {
     background-color: #0056b3;
@@ -109,11 +110,11 @@ const CalendarButton = styled.a`
 const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
-  font-size: 0.9em;
+  margin-top: 25px;
+  font-size: 1em;
 
   @media (min-width: 768px) {
-    font-size: 1em; /* Normal font size for larger screens */
+    font-size: 1.1em; /* Normal font size for larger screens */
   }
 `;
 
@@ -128,38 +129,26 @@ const TableRow = styled.tr`
 `;
 
 const TableHeader = styled.th`
-  padding: 10px;
+  padding: 15px; /* Increased padding */
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid #ddd; /* Thicker border */
 `;
 
 const TableCell = styled.td`
-  padding: 10px;
+  padding: 15px; /* Increased padding */
   text-align: left;
   border-bottom: 1px solid #ddd;
 `;
 
-const ActionButton = styled.button`
-  padding: 5px 10px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
-
 const ExitButton = styled.button`
-  margin-top: 20px;
-  padding: 10px;
+  margin-top: 30px;
+  padding: 12px 20px; /* Increased padding */
   border: none;
   background-color: #dc3545;
   color: white;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 1em; /* Increased font size */
 
   &:hover {
     background-color: #c82333;
@@ -167,12 +156,12 @@ const ExitButton = styled.button`
 `;
 
 const AssignmentsSection = styled.div`
-  margin-top: 20px;
+  margin-top: 30px; /* Increased margin */
 `;
 
 const AssignmentsHeader = styled.h2`
-  font-size: 1.2em;
-  margin-bottom: 10px;
+  font-size: 1.4em; /* Increased font size */
+  margin-bottom: 15px; /* Increased margin */
 `;
 
 const AssignmentsTable = styled(Table)`
@@ -188,18 +177,21 @@ const LoginContainer = styled.div`
   background-image: url('https://img.freepik.com/free-photo/old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall_1258-28313.jpg');
   background-size: cover;
   background-position: center;
-  color: white;
-  padding: 20px;
+  color: silver;
+  padding: 30px;
   text-align: center;
 `;
 
 const LoginForm = styled.div`
-  background: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 15px; /* Increased border-radius */
   width: 100%;
-  max-width: 400px; /* Maximum width for login form */
+  max-width: 450px; /* Increased maximum width for login form */
+  height: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Added box shadow for better visibility */
 `;
+
 
 const Dashboard = () => {
   const [selectedDate, setSelectedDate] = useState('');
@@ -209,23 +201,24 @@ const Dashboard = () => {
   const [inputCode, setInputCode] = useState('');
 
   useEffect(() => {
-    // Set current date when component mounts
-    const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
+    const today = new Date().toISOString().split('T')[0];
     setSelectedDate(today);
   }, []);
 
   const handleLogin = () => {
-    const foundUser = Object.values(userCodes).find(user => user.code === inputCode);
-    
+    const trimmedInputCode = inputCode.trim(); // Trim whitespace from input code
+    const foundUser = Object.values(userCodes).find(user => user.code === trimmedInputCode);
+  
     if (foundUser) {
       setIsAuthenticated(true);
       setRole(foundUser.role);
       setUserName(foundUser.name);
+      setInputCode(''); // Clear the input after successful login
     } else {
       alert('Incorrect code. Please try again.');
     }
   };
-
+  
   const handleLogout = () => {
     setIsAuthenticated(false);
     setRole('');
@@ -234,7 +227,7 @@ const Dashboard = () => {
   };
 
   const renderDashboard = () => {
-    const data = role === 'teacher' ? sessionDataStudent : sessionDataTeacher;
+    const data = role === 'teacher' ? sessionDataTeacher : sessionDataStudent;
     const testsAndAssignments = role === 'student' ? testAssignmentsData : [];
 
     return (
@@ -242,7 +235,7 @@ const Dashboard = () => {
         <Sidebar>
           <div>
             <SidebarItem active>Dashboard</SidebarItem>
-            {role === 'student' && <SidebarItem>Exams/Tests</SidebarItem>}
+            {role === 'student' && <SidebarItem>Information with respect to Tests shall be displayed here</SidebarItem>}
           </div>
           <SidebarItem>{userName}<br /></SidebarItem>
           <ExitButton onClick={handleLogout}>Exit</ExitButton>
@@ -254,7 +247,7 @@ const Dashboard = () => {
             </WelcomeMessage>
             <DateSelector>
               {selectedDate}
-              <CalendarButton href="https://calendar.google.com/calendar/u/0/r?pli=1" target="_blank" rel="noopener noreferrer">
+              <CalendarButton href="https://calendar.google.com/calendar/u/0/r?hl=en" target="_blank" rel="noopener noreferrer">
                 View Calendar
               </CalendarButton>
             </DateSelector>
@@ -276,7 +269,13 @@ const Dashboard = () => {
                   <TableCell>{index + 1}</TableCell>
                   <TableCell>
                     {session.time}<br />
-                    <ActionButton>{session.sessionType}</ActionButton><br />
+                    <a 
+                      href={session.sessionType.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      {session.sessionType.type}
+                    </a><br />
                     {session.subject}
                   </TableCell>
                   <TableCell>{session.topics}</TableCell>
@@ -324,14 +323,14 @@ const Dashboard = () => {
       ) : (
         <LoginContainer>
           <LoginForm>
-            <h2>Login</h2>
+            <h2>Welcome to ProdigyPeak's Dashboard. This Dashboard helps streamline the entire process. To acceess it, please enter the code assigned to you!</h2>
             <input
               type="text"
-              placeholder="Enter your code"
+              placeholder="Enter the code assigned to you"
               value={inputCode}
               onChange={(e) => setInputCode(e.target.value)}
             />
-            <button onClick={handleLogin}>Login</button>
+            <button onClick={handleLogin}>Access</button>
           </LoginForm>
         </LoginContainer>
       )}
