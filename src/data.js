@@ -22,7 +22,7 @@ export const sessionDataTeacher = [
       type: 'Click here to join the class',
       link: 'https://calendar.app.google/ZAd5h8ZJnfyHfKP16', // replace with actual class link
     },
-    subject: 'Physics',
+    subject: 'Physics for student- Rudra',
     topics: 'Motion',
   },
   // More teacher sessions can be added here
